@@ -4,11 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor de Videos desde Google Drive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .control-button {
+            font-size: 1.5em;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Mis Videos</h1>
-    <div>
-        <iframe src="https://drive.google.com/file/d/16i55zjEZPVJXnTnEuOBCsra3ut2TWDH9/preview" width="640" height="480" allow="autoplay"></iframe>
+    <div class="video-container" id="videoContainer">
+        <iframe id="videoFrame" src="https://drive.google.com/file/d/16i55zjEZPVJXnTnEuOBCsra3ut2TWDH9/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
+    <div>
+        <button class="control-button" onclick="playPause()">Play/Pausa</button>
+        <button class="control-button" onclick="navigateBack()">Atrás</button>
+        <button class="control-button" onclick="navigateForward()">Adelante</button>
+        <button class="control-button" onclick="zoomIn()">Acercar</button>
+        <button class="control-button" onclick="zoomOut()">Alejar</button>
+    </div>
+
+    <script>
+        var videoFrame = document.getElementById('videoFrame');
+
+        function playPause() {
+            if (videoFrame.contentWindow.document.querySelector('video')) {
+                var video = videoFrame.contentWindow.document.querySelector('video');
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        }
+
+        function navigateBack() {
+            window.history.back();
+        }
+
+        function navigateForward() {
+            window.history.forward();
+        }
+
+        function zoomIn() {
+            document.getElementById('videoContainer').style.transform = "scale(1.2)";
+        }
+
+        function zoomOut() {
+            document.getElementById('videoContainer').style.transform = "scale(1)";
+        }
+    </script>
 </body>
 </html>
