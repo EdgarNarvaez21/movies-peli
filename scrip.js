@@ -1,30 +1,10 @@
-// Usuario y contraseña aleatorios
-const randomUsername = "usuario";
-const randomPassword = "contraseña";
-
-// Simula el estado de inicio de sesión (true = usuario autenticado, false = usuario no autenticado)
-var loggedIn = false;
-
-// Función para verificar si el usuario ha iniciado sesión
-function checkLoginStatus() {
-    if (!loggedIn && window.location.pathname !== '/login.html') {
-        // Si el usuario no ha iniciado sesión y no está en la página de inicio de sesión, redirigir al formulario de inicio de sesión
-        window.location.href = 'login.html';
-    } else if (loggedIn && window.location.pathname === '/login.html') {
-        // Si el usuario ha iniciado sesión y está en la página de inicio de sesión, redirigir al menú principal
-        window.location.href = 'index.html';
-    }
-}
-
-// Función para cerrar sesión
-function logout() {
-    loggedIn = false;
-    // Redirigir de nuevo al formulario de inicio de sesión
-    window.location.href = 'login.html';
-}
-
 // Verificar el estado de inicio de sesión cuando la página se carga
 document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+// Función para redirigir a la página de registro
+document.getElementById('register-btn').addEventListener('click', function() {
+    window.location.href = 'registro.html';
+});
 
 // Escuchar el evento submit del formulario de inicio de sesión
 document.getElementById('login-form').addEventListener('submit', function(event) {
@@ -34,17 +14,34 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Verificar si las credenciales son correctas
-    if (username === randomUsername && password === randomPassword) {
-        // Si las credenciales son correctas, establecer el estado de inicio de sesión a verdadero
-        loggedIn = true;
-        // Redirigir al menú principal
+    // Comprobar si el usuario y la contraseña están en la base de datos
+    if (validarCredenciales(username, password)) {
+        // Si las credenciales son válidas, redirigir al usuario al menú principal
         window.location.href = 'index.html';
     } else {
         // Si las credenciales son incorrectas, mostrar un mensaje de error
         alert('Usuario o contraseña incorrectos');
     }
 });
+
+// Función para validar las credenciales
+function validarCredenciales(username, password) {
+    // Supongamos que aquí deberíamos consultar la base de datos, pero en este ejemplo
+    // simplemente comparamos con datos almacenados localmente.
+    var usuarios = obtenerUsuarios();
+    return usuarios.hasOwnProperty(username) && usuarios[username] === password;
+}
+
+// Función para obtener usuarios de la base de datos local
+function obtenerUsuarios() {
+    // Aquí deberíamos implementar la lógica para obtener los usuarios de la base de datos,
+    // pero en este ejemplo, simplemente devolvemos datos de prueba.
+    return {
+        "usuario1": "contraseña1",
+        "usuario2": "contraseña2"
+    };
+}
+
 
 
 function playPause() {
