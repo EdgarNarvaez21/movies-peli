@@ -1,4 +1,4 @@
-/// Usuario y contraseña aleatorios
+// Usuario y contraseña aleatorios
 const randomUsername = "usuario";
 const randomPassword = "contraseña";
 
@@ -45,7 +45,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         alert('Usuario o contraseña incorrectos');
     }
 });
-
 
 
 function playPause() {
