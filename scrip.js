@@ -48,8 +48,6 @@ function obtenerUsuarios() {
     };
 }
 
-
-
 function playPause() {
     var iframes = document.querySelectorAll('.video-container iframe');
     iframes.forEach(function(iframe) {
