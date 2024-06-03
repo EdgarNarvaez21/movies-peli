@@ -1,9 +1,16 @@
-// Verificar el estado de inicio de sesión cuando la página se carga
-document.addEventListener('DOMContentLoaded', checkLoginStatus);
+// Función para manejar el registro de un nuevo usuario
+function registrarNuevoUsuario(username, password) {
+    // Aquí deberías implementar la lógica para guardar el nuevo usuario en la base de datos.
+    // En este ejemplo, simplemente almacenamos los datos localmente.
+    localStorage.setItem(username, password);
+}
 
-// Función para redirigir a la página de registro
-document.getElementById('register-btn').addEventListener('click', function() {
-    window.location.href = 'registro.html';
+// Verificar el estado de inicio de sesión cuando la página se carga
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+    document.getElementById('register-btn').addEventListener('click', function() {
+        window.location.href = 'registro.html';
+    });
 });
 
 // Escuchar el evento submit del formulario de inicio de sesión
@@ -28,8 +35,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 function validarCredenciales(username, password) {
     // Supongamos que aquí deberíamos consultar la base de datos, pero en este ejemplo
     // simplemente comparamos con datos almacenados localmente.
-    var usuarios = obtenerUsuarios();
-    return usuarios.hasOwnProperty(username) && usuarios[username] === password;
+    return localStorage.getItem(username) === password;
 }
 
 // Función para obtener usuarios de la base de datos local
