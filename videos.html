@@ -4,39 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor de Videos desde Google Drive</title>
-    <style>
-        .ndfHFb-c4YZDc-Wrql6b {
-            display: none !important;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            margin-bottom: 20px; /* Agrega espacio entre los contenedores de video */
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .control-button {
-            font-size: 1.5em;
-            padding: 10px;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Mis Videos</h1>
@@ -60,42 +28,6 @@
         <button class="control-button" onclick="zoomOut()">Alejar</button>
     </div>
 
-    <script>
-        function playPause() {
-            var iframes = document.querySelectorAll('.video-container iframe');
-            iframes.forEach(function(iframe) {
-                if (iframe.contentWindow.document.querySelector('video')) {
-                    var video = iframe.contentWindow.document.querySelector('video');
-                    if (video.paused) {
-                        video.play();
-                    } else {
-                        video.pause();
-                    }
-                }
-            });
-        }
-
-        function navigateBack() {
-            window.history.back();
-        }
-
-        function navigateForward() {
-            window.history.forward();
-        }
-
-        function zoomIn() {
-            var videoContainers = document.querySelectorAll('.video-container');
-            videoContainers.forEach(function(container) {
-                container.style.transform = "scale(1.2)";
-            });
-        }
-
-        function zoomOut() {
-            var videoContainers = document.querySelectorAll('.video-container');
-            videoContainers.forEach(function(container) {
-                container.style.transform = "scale(1)";
-            });
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
