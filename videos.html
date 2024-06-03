@@ -53,6 +53,14 @@
     <script>
         var videoFrame = document.getElementById('videoFrame');
 
+	// Función para ocultar el elemento del reproductor de video después de que la página haya cargado completamente
+        window.onload = function() {
+            var externalWindowIcon = document.querySelector('.external-window-icon');
+            if (externalWindowIcon) {
+                externalWindowIcon.style.display = 'none';
+            }
+        };
+
         function playPause() {
             if (videoFrame.contentWindow.document.querySelector('video')) {
                 var video = videoFrame.contentWindow.document.querySelector('video');
