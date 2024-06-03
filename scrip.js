@@ -7,16 +7,12 @@ var loggedIn = false;
 
 // Función para verificar si el usuario ha iniciado sesión
 function checkLoginStatus() {
-    if (!loggedIn) {
-        // Si el usuario no ha iniciado sesión, redirigir al formulario de inicio de sesión
+    if (!loggedIn && window.location.pathname !== '/login.html') {
+        // Si el usuario no ha iniciado sesión y no está en la página de inicio de sesión, redirigir al formulario de inicio de sesión
         window.location.href = 'login.html';
-    } else {
-        // Si el usuario ha iniciado sesión, mostrar el menú principal
-        var menuDiv = document.getElementById('menu');
-        menuDiv.innerHTML = `
-            <p>Bienvenido al menú principal</p>
-            <button onclick="logout()">Cerrar sesión</button>
-        `;
+    } else if (loggedIn && window.location.pathname === '/login.html') {
+        // Si el usuario ha iniciado sesión y está en la página de inicio de sesión, redirigir al menú principal
+        window.location.href = 'index.html';
     }
 }
 
@@ -49,6 +45,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         alert('Usuario o contraseña incorrectos');
     }
 });
+
 
 
 function playPause() {
