@@ -1,51 +1,25 @@
-// Usuario y contraseña aleatorios
-const randomUsername = "usuario";
-const randomPassword = "contraseña";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <form id="login-form">
+        <div>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
 
-// Simula el estado de inicio de sesión (true = usuario autenticado, false = usuario no autenticado)
-var loggedIn = false;
-
-// Función para verificar si el usuario ha iniciado sesión
-function checkLoginStatus() {
-    if (!loggedIn) {
-        // Si el usuario no ha iniciado sesión, redirigir al formulario de inicio de sesión
-        window.location.href = 'login.html';
-    } else {
-        // Si el usuario ha iniciado sesión, mostrar el menú principal
-        var menuDiv = document.getElementById('menu');
-        menuDiv.innerHTML = `
-            <p>Bienvenido al menú principal</p>
-            <button onclick="logout()">Cerrar sesión</button>
-        `;
-    }
-}
-
-// Función para cerrar sesión
-function logout() {
-    loggedIn = false;
-    // Redirigir de nuevo al formulario de inicio de sesión
-    window.location.href = 'login.html';
-}
-
-// Verificar el estado de inicio de sesión cuando la página se carga
-document.addEventListener('DOMContentLoaded', checkLoginStatus);
-
-// Escuchar el evento submit del formulario de inicio de sesión
-document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe por defecto
-
-    // Obtener los valores del formulario
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-    // Verificar si las credenciales son correctas
-    if (username === randomUsername && password === randomPassword) {
-        // Si las credenciales son correctas, establecer el estado de inicio de sesión a verdadero
-        loggedIn = true;
-        // Redirigir al menú principal
-        window.location.href = 'index.html';
-    } else {
-        // Si las credenciales son incorrectas, mostrar un mensaje de error
-        alert('Usuario o contraseña incorrectos');
-    }
-});
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,3 +1,7 @@
+/// Usuario y contraseña aleatorios
+const randomUsername = "usuario";
+const randomPassword = "contraseña";
+
 // Simula el estado de inicio de sesión (true = usuario autenticado, false = usuario no autenticado)
 var loggedIn = false;
 
@@ -25,6 +29,26 @@ function logout() {
 
 // Verificar el estado de inicio de sesión cuando la página se carga
 document.addEventListener('DOMContentLoaded', checkLoginStatus);
+
+// Escuchar el evento submit del formulario de inicio de sesión
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe por defecto
+
+    // Obtener los valores del formulario
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Verificar si las credenciales son correctas
+    if (username === randomUsername && password === randomPassword) {
+        // Si las credenciales son correctas, establecer el estado de inicio de sesión a verdadero
+        loggedIn = true;
+        // Redirigir al menú principal
+        window.location.href = 'index.html';
+    } else {
+        // Si las credenciales son incorrectas, mostrar un mensaje de error
+        alert('Usuario o contraseña incorrectos');
+    }
+});
 
 
 function playPause() {
