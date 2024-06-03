@@ -21,6 +21,7 @@
             overflow: hidden;
             max-width: 100%;
             background: #000;
+            margin-bottom: 20px; /* Agrega espacio entre los contenedores de video */
         }
         .video-container iframe {
             position: absolute;
@@ -39,14 +40,14 @@
 </head>
 <body>
     <h1>Mis Videos</h1>
-    <div class="video-container" id="videoContainer">
-        <iframe id="videoFrame" src="https://drive.google.com/file/d/1EKC6zGnR3lD0my5bWCq-5JJRHEWnURhg/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
+    <div class="video-container">
+        <iframe src="https://drive.google.com/file/d/1EKC6zGnR3lD0my5bWCq-5JJRHEWnURhg/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
     </div>
-    <div class="video-container" id="videoContainer">
-        <iframe id="videoFrame" src="https://drive.google.com/file/d/1n2qYcuF_H9MZf0m4TWBxIxF8hOC7is9r/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
+    <div class="video-container">
+        <iframe src="https://drive.google.com/file/d/1n2qYcuF_H9MZf0m4TWBxIxF8hOC7is9r/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
     </div>
-    <div class="video-container" id="videoContainer">
-        <iframe id="videoFrame" src="https://drive.google.com/file/d/1ghnIa9OINAokdHneHdwJ3tFL-4fI2irR/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
+    <div class="video-container">
+        <iframe src="https://drive.google.com/file/d/1ghnIa9OINAokdHneHdwJ3tFL-4fI2irR/preview" allow="autoplay; encrypted-media" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups=false"></iframe>
     </div>
     <div>
         <button class="control-button" onclick="playPause()">Play/Pausa</button>
@@ -57,25 +58,18 @@
     </div>
 
     <script>
-        var videoFrame = document.getElementById('videoFrame');
-
-	// Función para ocultar el elemento del reproductor de video después de que la página haya cargado completamente
-        window.onload = function() {
-            var externalWindowIcon = document.querySelector('.external-window-icon');
-            if (externalWindowIcon) {
-                externalWindowIcon.style.display = 'none';
-            }
-        };
-
         function playPause() {
-            if (videoFrame.contentWindow.document.querySelector('video')) {
-                var video = videoFrame.contentWindow.document.querySelector('video');
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
+            var iframes = document.querySelectorAll('.video-container iframe');
+            iframes.forEach(function(iframe) {
+                if (iframe.contentWindow.document.querySelector('video')) {
+                    var video = iframe.contentWindow.document.querySelector('video');
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
                 }
-            }
+            });
         }
 
         function navigateBack() {
@@ -87,14 +81,18 @@
         }
 
         function zoomIn() {
-            document.getElementById('videoContainer').style.transform = "scale(1.2)";
+            var videoContainers = document.querySelectorAll('.video-container');
+            videoContainers.forEach(function(container) {
+                container.style.transform = "scale(1.2)";
+            });
         }
 
         function zoomOut() {
-            document.getElementById('videoContainer').style.transform = "scale(1)";
+            var videoContainers = document.querySelectorAll('.video-container');
+            videoContainers.forEach(function(container) {
+                container.style.transform = "scale(1)";
+            });
         }
     </script>
 </body>
 </html>
-
-<!-- ID_PRUEB: 16i55zjEZPVJXnTnEuOBCsra3ut2TWDH9 -->
