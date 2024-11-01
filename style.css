@@ -49,3 +49,8 @@ body {
 .movie:hover {
     transform: scale(1.1);
 }
+.movie img {
+    width: 100px; /* Cambia este valor para ajustar el ancho */
+    height: 150px; /* Cambia este valor para ajustar la altura */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+}
