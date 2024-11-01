@@ -49,8 +49,28 @@ body {
 .movie:hover {
     transform: scale(1.1);
 }
-.movie img {
-    width: 100px; /* Cambia este valor para ajustar el ancho */
-    height: 150px; /* Cambia este valor para ajustar la altura */
-    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+.movie {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
+
+.img-small {
+    width: 50px;
+    height: 75px;
+    object-fit: cover;
+}
+
+.img-medium {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.img-large {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+}
+
