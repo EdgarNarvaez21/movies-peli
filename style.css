@@ -49,22 +49,20 @@ body {
 .movie:hover {
     transform: scale(1.1);
 }
-
 .img-small {
-    width: 10px;
-    height: 55px;
+    width: 50px;
+    height: auto;
     object-fit: cover;
 }
 
 .img-medium {
     width: 100px;
-    height: 150px;
+    height: auto;
     object-fit: cover;
 }
 
 .img-large {
     width: 150px;
-    height: 225px;
+    height: auto;
     object-fit: cover;
 }
-
