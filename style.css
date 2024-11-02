@@ -1,17 +1,12 @@
-.ndfHFb-c4YZDc-Wrql6b {
-.ndfHFb-c4YZDc-Wrql6b {
-    display: none !important;
-}
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #141414; /* Color de fondo similar al de Netflix */
-    color: #FFFFFF; /* Texto en blanco para que contraste bien */
+    background-color: #141414; /* Fondo similar al de Netflix */
+    color: #FFFFFF; /* Texto en blanco para mejor contraste */
 }
 
-}
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -19,8 +14,9 @@ body {
     overflow: hidden;
     max-width: 100%;
     background: #000;
-    margin-bottom: 20px; /* Agrega espacio entre los contenedores de video */
+    margin-bottom: 20px; /* Espacio entre contenedores de video */
 }
+
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -28,12 +24,14 @@ body {
     width: 100%;
     height: 100%;
 }
+
 .control-button {
     font-size: 1.5em;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
 }
+
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -41,8 +39,9 @@ body {
     gap: 20px;
     padding: 20px;
 }
+
 .movie {
-    background: #333; /* Un tono gris oscuro para resaltar sobre el fondo */
+    background: #333; /* Tono gris oscuro para resaltar sobre el fondo */
     color: #FFFFFF; /* Texto blanco */
     padding: 20px;
     border: 1px solid #444;
@@ -50,14 +49,14 @@ body {
     cursor: pointer;
     text-align: center;
     transition: transform 0.3s;
-    border-radius: 8px; /* Bordes redondeados para un mejor estilo */
+    border-radius: 8px; /* Bordes redondeados */
 }
+
 .movie:hover {
     transform: scale(1.1);
     background: #444; /* Cambio de color al pasar el ratón */
 }
 
-}
 .img-small {
     width: 50px;
     height: auto;
