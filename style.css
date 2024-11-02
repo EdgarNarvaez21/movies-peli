@@ -7,6 +7,10 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    background-color: #141414; /* Color de fondo similar al de Netflix */
+    color: #FFFFFF; /* Texto en blanco para que contraste bien */
+}
+
 }
 .video-container {
     position: relative;
@@ -38,16 +42,21 @@ body {
     padding: 20px;
 }
 .movie {
-    background: #f0f0f0;
+    background: #333; /* Un tono gris oscuro para resaltar sobre el fondo */
+    color: #FFFFFF; /* Texto blanco */
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     width: 200px;
     cursor: pointer;
     text-align: center;
     transition: transform 0.3s;
+    border-radius: 8px; /* Bordes redondeados para un mejor estilo */
 }
 .movie:hover {
     transform: scale(1.1);
+    background: #444; /* Cambio de color al pasar el ratón */
+}
+
 }
 .img-small {
     width: 50px;
